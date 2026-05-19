@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+To run the server:
+1. cd into it
+2. rails server -b 0.0.0.0
+
+If a migration is required
+1. cd into it
+2. rails db:migrate
