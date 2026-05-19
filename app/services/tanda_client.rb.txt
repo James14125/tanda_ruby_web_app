@@ -1,0 +1,15 @@
+class TandaTokenRefresher
+  def self.refresh(refresh_token)
+    response = Faraday.post("https://my.tanda.co/api/oauth/token") do |req|
+      req.body = {
+        client_id: ENV["TANDA_CLIENT_ID"],
+        client_secret: ENV["TANDA_CLIENT_SECRET"],
+        refresh_token: refresh_token,
+        redirect_uri: ENV["TANDA_REDIRECT_URI"],
+        grant_type: "refresh_token"
+      }
+    end
+
+    JSON.parse(response.body)
+  end
+end
