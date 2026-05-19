@@ -1,0 +1,21 @@
+<h1>Tanda Hotwire App</h1>
+
+<% if user_signed_in? %>
+  <p>Logged in as <%= current_user.email %></p>
+
+  <% if current_user.tanda_access_token.present? %>
+    <p>Tanda connected!</p>
+    <%= link_to "View Tanda Profile", "/tanda/me" %>
+  <% else %>
+    <%= link_to "Connect Tanda", "/tanda/connect" %>
+  <% end %>
+
+  <br><br>
+
+  <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <br><br>
+  <%= link_to "Log in", new_user_session_path %>
+<% end %>
