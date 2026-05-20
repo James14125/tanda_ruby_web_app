@@ -3,12 +3,7 @@
 <% if user_signed_in? %>
   <p>Logged in as <%= current_user.email %></p>
 
-  <% if current_user.tanda_access_token.present? %>
-    <p>Tanda connected!</p>
-    <%= link_to "View Tanda Profile", "/tanda/me" %>
-  <% else %>
-    <%= link_to "Connect Tanda", "/tanda/connect" %>
-  <% end %>
+  <%= link_to "Test Tanda API", "/tanda" %>
 
   <br><br>
 

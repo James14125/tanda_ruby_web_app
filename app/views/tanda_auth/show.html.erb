@@ -1,0 +1,12 @@
+<h1>Tanda API Test</h1>
+
+<p><strong>Status:</strong> <%= @status %></p>
+
+<% if @tanda_user["error"].present? %>
+  <p><strong>Error:</strong> <%= @tanda_user["error"] %></p>
+<% else %>
+  <p><strong>Name:</strong> <%= @tanda_user["name"] %></p>
+  <p><strong>Email:</strong> <%= @tanda_user["email"] %></p>
+  <p><strong>Organisation:</strong> <%= @tanda_user["organisation"] %></p>
+  <p><strong>Permissions:</strong> <%= @tanda_user["permissions"]&.join(", ") %></p>
+<% end %>
